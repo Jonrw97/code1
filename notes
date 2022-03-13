@@ -1,0 +1,99 @@
+sudo
+  runas admin
+
+apt-get
+  used for various tools to do things
+
+sudo apt-get update
+  check for latest update packages
+sudo apt-get upgrade
+  install all upgrade packages
+history
+  see history for inputs on terminal
+
+use python3
+$ environment variable stores home folder
+
+explorer.exe .
+  opens explorer (the . tells it to run where i am in directory)
+
+python3 --version
+  checks for version of python(or other installs just replace python)
+sudo apt-get install python3
+  install for python3
+
+sudo apt-get install python3-pip
+  install pip
+
+python3 -m pip install --user --upgrade pip
+  install latest packages
+
+ sudo apt-get install python3.8-venv
+  install virtual environment
+
+python3 -m venv .venv
+  create new virtual environment
+
+. .venv/bin/activate
+  activate virtual environment
+
+sudo curl -o /usr/local/bin/atom #URL
+  tells the terminal to store data taken from a url in the given path
+
+sudo chmod +x /usr/local/bin/atom
+  changes which groups(owner,users, public) can read,execute or write files/folders
+
+atom .
+
+  run atom using my current directory
+
+sudo chown -R jon:jon code
+  changes ownership of files and folders.
+  -R means using recursive(will run through the files and open folders to run through the files in the folders aswell)
+
+source .venv/bin/activate
+  starting venv, sourse tells it to use all the packages from the source Code
+
+ctrl+r
+  reverse search for inputs in history
+
+tab to autofill possible inputs
+
+GITHUB
+
+  git init .
+   create repository on computer
+
+   get add .
+    adds current directory to repository
+
+   git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+    code to confiure github to my account
+
+    git commit -m "My First Commit"
+     commit to github and give it a Name
+
+    git log
+      see log notes of commits
+
+    git status
+      see the status of the repository
+
+  ssh key process
+    ssh-keygen -t ed25519 -C "jonrw97@gmail.com"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519
+    cat ~/.ssh/id_ed25519.pub
+    ssh -T git@github.com
+    git remote add origin git@github.com:Jonrw97/test-setup.git
+    nano .git/config (change url to git@github)
+    git branch -M main
+    git push -u origin main
+
+      ssh key is advanced authentication for github to connect to your computer
+
+
+
+WARNING: The scripts pip, pip3 and pip3.8 are installed in '/home/jon/.local/bin' which is not on PATH.
+  Consider adding this directory to PATH or, if you prefer to suppress this warning, use --no-warn-script-location.
