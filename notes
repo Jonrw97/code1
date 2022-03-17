@@ -96,6 +96,32 @@ GITHUB
 
       ssh key is advanced authentication for github to connect to your computer
 
+      ssh key
+        eval "$(ssh-agent)"
+        ssh-add
+        create script to run this when ubuntu is open
+
+
+      FLASK_ENV=development
+        change flask environment so it treats variables differently
+
+    development mode
+      changes happen after every request
+
+    production mode
+      must be closed and rerun to see changes
+
+  pip list
+      lists all pip installs
+
+    |  (pipe symbol)
+      take something to pipe through a command
+
+    grep
+      used with pipe to look for sommething in a file or lists
+
+    state full
+    state less
 
 
 WARNING: The scripts pip, pip3 and pip3.8 are installed in '/home/jon/.local/bin' which is not on PATH.

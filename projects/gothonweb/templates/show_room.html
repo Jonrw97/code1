@@ -8,12 +8,13 @@
 {{room.description}}
 </pre>
 
-{% if room.name in ["death", "The End"] %}
+{% if room.name in ["Game Over", "The End"] %}
   <p><a href="/">Play Again?</a></p>
 {% else %}
   <p>
   <form action="/game" method="POST">
       -<input type="text" name="action"> <input type="SUBMIT">
+      <input type="text" name="current_player" value={{current_player}}>
   </form>
   </p>
 {% endif %}
