@@ -10,6 +10,7 @@ class Player(object):
     def get_current_game_room(self):
         return self.current_game_room
 
+
 players = {
 
 }
@@ -20,3 +21,6 @@ def get_or_create_player(player_name):
 
     players[player_name] = Player(player_name)
     return players[player_name]
+
+def save_current_room():
+    pass

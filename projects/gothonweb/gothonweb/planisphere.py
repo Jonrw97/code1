@@ -1,5 +1,5 @@
 from random import randint
-
+from gothonweb import user_interface
 class Room(object):
 
     def __init__(self, name, description):
@@ -14,27 +14,21 @@ class Room(object):
         self.paths.update(paths)
 
 central_corridor = Room("Central Corridor",
-        """text CentralCorridor
-        """)
+                        user_interface.UI['central_corridor'])
 
 laser_weapon_armory = Room("Laser Weapon Armory",
-        """text LaserWeaponArmory
-        """)
+                            user_interface.UI['laser_weapon_armory'])
 
 the_bridge = Room("The Bridge",
-        """text TheBridge
-        """)
+                    user_interface.UI['the_bridge'])
 
 escape_pod = Room("Escape Pod",
-        """text EscapePod
-        """)
+                    user_interface.UI['escape_pod'])
 the_end_winner = Room("The End",
-        """text The End Winner
-        """)
+                        user_interface.UI['the_end_winner'])
 
 the_end_loser = Room("The End",
-        """text The End Loser
-        """)
+                        user_interface.UI['the_end_loser'])
 
 death = {
     1 : "You died.  You kinda suck at this.",

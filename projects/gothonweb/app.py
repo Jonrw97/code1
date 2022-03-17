@@ -13,20 +13,24 @@ def index():
 @app.route('/login', methods=['POST', 'GET'])
 def login():
     if request.method =="GET":
-        render_template("login.html")
+        return render_template("login.html")
     elif request.method =="POST":
         player_name = request.form.get('player_name')
         player = game_state.get_or_create_player(player_name)
-        session.put("player_name", player.name)
+        session["player_name"]= player_name
         return redirect(url_for("game"))
     else:
         raise error(f"Unhandled Method{request.method}")
 
+@app.route('/new_game')
+def new_game():
+    session['room_name'] = planisphere.START
+    return redirect(url_for("login"))
+
 @app.route('/game', methods=['POST','GET'])
 def game():
-    current_player_name=session.get("player_name")
-    current_player=game_state.get_or_create_player(player_name)
-    room_name = current_player.get(current_game_room)
+    current_player=session["player_name"]
+    room_name = session.get('room_name')
     if request.method =="GET":
         if room_name:
             room =planisphere.load_room(room_name)
