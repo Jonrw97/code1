@@ -63,6 +63,9 @@ central_corridor.add_paths({
 
 START = 'central_corridor'
 
+def get_start_room():
+    return load_room(START)
+
 def load_room(name):
     """
     There is a potential secruity problem here.

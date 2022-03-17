@@ -6,8 +6,6 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    #this is used to setup the session with starting values
-    session['room_name'] = planisphere.START
     return redirect(url_for("login"))
 
 @app.route('/login', methods=['POST', 'GET'])
@@ -22,33 +20,31 @@ def login():
     else:
         raise error(f"Unhandled Method{request.method}")
 
-@app.route('/new_game')
-def new_game():
-    session['room_name'] = planisphere.START
-    return redirect(url_for("login"))
 
 @app.route('/game', methods=['POST','GET'])
 def game():
-    current_player=session["player_name"]
-    room_name = session.get('room_name')
+    player_name=session["player_name"]
+    player = game_state.get_or_create_player(player_name)
+    room = player.get_current_game_room()
+    print(f"{room.name}player.room_name")
     if request.method =="GET":
-        if room_name:
-            room =planisphere.load_room(room_name)
-            print(f"in game get {room_name}={room}")
-            return render_template("show_room.html", room=room, current_player=current_player)
+        if room:
+            print(f"{room}<<<<test_room_1")
+            return render_template("show_room.html", room=room, player=player)
         else:
-            return render_template("you_died.html")
+            raise Exception("No room found")
     else:
         action = request.form.get('action')
 
-        if room_name and action:
-            room = planisphere.load_room(room_name)
+        if room and action:
             next_room = room.go(action)
+            print(f"{room.go(action)}<<<<<room.go test2")
+            print(F"{next_room}!!!!!!test 1")
 
-        if not next_room:
-            session['room_name'] = planisphere.name_room(room)
+        if next_room:
+            player.save_current_room(next_room)
         else:
-            session['room_name'] = planisphere.name_room(next_room)
+            raise Exception("No next room found")
     return redirect(url_for("game"))
 
 app.secret_key ='AX0d9s9cd/?%HalJis '
