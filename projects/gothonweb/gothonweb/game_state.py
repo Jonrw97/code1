@@ -3,6 +3,7 @@ class Player(object):
 
     def __init__(self, player_name):
         self.player_name = player_name
+        self.game_count = 0
         self.reset_current_game()
 
     def get_current_game_room(self):
@@ -13,7 +14,7 @@ class Player(object):
 
     def reset_current_game(self):
         self.current_game = "planisphere"
-        self.game_count = 0
+        self.game_count += 1
         self.current_game_room = planisphere.get_start_room()
 
 players = {
