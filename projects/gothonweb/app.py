@@ -15,22 +15,26 @@ def login():
     elif request.method =="POST":
         player_name = request.form.get('player_name')
         player = game_state.get_or_create_player(player_name)
-        session["player_name"]= player_name
-        return redirect(url_for("game"))
+        return redirect(url_for("game", player_name = player_name))
     else:
         raise error(f"Unhandled Method{request.method}")
 
+@app.route('/play_again')
+def play_again():
+    player_name = request.args.get('player_name', None)
+    player = game_state.get_or_create_player(player_name)
+    player.reset_current_game()
+    return redirect(url_for("game", player_name = player_name))
 
 @app.route('/game', methods=['POST','GET'])
 def game():
-    player_name=session["player_name"]
+    player_name = request.args.get('player_name', None)
+
     player = game_state.get_or_create_player(player_name)
     room = player.get_current_game_room()
-    print(f"{room.name}player.room_name")
     if request.method =="GET":
         if room:
-            print(f"{room}<<<<test_room_1")
-            return render_template("show_room.html", room=room, player=player)
+            return render_template("show_room.html", room=room, player=player, player_name = player_name)
         else:
             raise Exception("No room found")
     else:
@@ -38,14 +42,13 @@ def game():
 
         if room and action:
             next_room = room.go(action)
-            print(f"{room.go(action)}<<<<<room.go test2")
-            print(F"{next_room}!!!!!!test 1")
 
         if next_room:
             player.save_current_room(next_room)
         else:
             raise Exception("No next room found")
-    return redirect(url_for("game"))
+    print("this is before game returns redirect >>>>>>")
+    return redirect(url_for("game", player_name = player_name))
 
 app.secret_key ='AX0d9s9cd/?%HalJis '
 

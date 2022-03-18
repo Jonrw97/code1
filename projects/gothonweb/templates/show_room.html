@@ -12,11 +12,11 @@
 </pre>
 
 {% if room.name in ["Game Over", "The End"] %}
-  <p><a href="/new_game">Play Again?</a></p>
+  <p><a href="/play_again?player_name={{player_name}}">Play Again?</a></p>
   <p><a href="/login">Logout</a></p>
 {% else %}
   <p>
-  <form action="/game" method="POST">
+  <form action="/game?player_name={{player_name}}" method="POST">
       -<input type="text" name="action"> <input type="SUBMIT">
   </form>
   </p>
