@@ -6,10 +6,8 @@ def test_room():
     central_corridor = Room("Central Corridor",
                 """text CentralCorridor
                 """)
-    generic_death = Room("Game Over", death[randint(1,5)])
     assert_equal(central_corridor.name, "Central Corridor")
     assert_equal(central_corridor.paths, {})
-    assert_true(generic_death== 1 or 2 or 3 or 4 or 5)
 
 def test_room_paths():
     laser_weapon_armory = Room("Laser Weapon Armory",

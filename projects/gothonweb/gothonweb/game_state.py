@@ -26,5 +26,4 @@ def get_or_create_player(player_name):
         return players[player_name]
 
     players[player_name] = Player(player_name)
-    print(players[player_name])
     return players[player_name]

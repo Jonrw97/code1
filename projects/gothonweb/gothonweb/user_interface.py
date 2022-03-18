@@ -23,7 +23,7 @@ more Gothons that might be hiding.  It's dead quiet, too quiet.  You
 stand up and run to the far side of the room and find the neutron bomb
 in its container.  There's a keypad lock on the box and you need the
 code to get the bomb out.  If you get the code wrong 10 times then the
-lock closes forever and you can't get the bomb.  The code is 3 digits.
+lock closes forever and you can't get the bomb.  The code is 4 digits.
 """,
     'the_bridge':
     """The container clicks open and the seal breaks, letting gas out.  You
