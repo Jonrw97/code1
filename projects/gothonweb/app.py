@@ -17,7 +17,7 @@ def login():
         player = game_state.get_or_create_player(player_name)
         return redirect(url_for("game", player_name = player_name))
     else:
-        raise error(f"Unhandled Method{request.method}")
+        raise Exception(f"Unhandled Method{request.method}")
 
 @app.route('/play_again')
 def play_again():
@@ -47,7 +47,6 @@ def game():
             player.save_current_room(next_room)
         else:
             raise Exception("No next room found")
-    print("this is before game returns redirect >>>>>>")
     return redirect(url_for("game", player_name = player_name))
 
 app.secret_key ='AX0d9s9cd/?%HalJis '
