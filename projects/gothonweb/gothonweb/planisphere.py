@@ -13,6 +13,7 @@ class Room(object):
     def add_paths(self, paths):
         self.paths.update(paths)
 
+
 central_corridor = Room("Central Corridor",
                         user_interface.UI['central_corridor'])
 
@@ -56,28 +57,14 @@ laser_weapon_armory.add_paths({
 })
 
 central_corridor.add_paths({
-    'shoot!': generic_death,
+    'shoot ': generic_death,
     'dodge!': generic_death,
     'tell a joke': laser_weapon_armory
 })
 
-START = 'central_corridor'
+start = central_corridor
+start.add_paths({'START':'central_corridor'})
 
 def get_start_room():
-    return load_room(START)
+    return Room.go(start, 'START')
 
-def load_room(name):
-    """
-    There is a potential secruity problem here.
-    Who gets to set name? Can that expose a variable?
-    """
-    return globals().get(name)
-
-def name_room(room):
-    """
-    Same possible secruity problem. Can you trust room?
-    What's a better solution than this globals lookup?
-    """
-    for key, value in globals().items():
-        if value == room:
-            return key

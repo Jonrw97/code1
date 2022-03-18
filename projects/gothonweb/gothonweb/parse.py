@@ -5,9 +5,8 @@ class ParseError(Exception):
 
 class Sentence(object):
 
-    def __init__(self, subject, verb, obj):
+    def __init__(self, verb, obj):
 
-        self.subject = subject[1]
         self.verb = verb[1]
         self.obj = obj[1]
 
@@ -53,29 +52,12 @@ def parse_object(word_list):
     else:
         raise ParseError("expected a noun or direction")
 
-def parse_subject(word_list):
-    skip(word_list, 'stop')
-    next_word = peek(word_list)
-
-    if next_word == 'noun':
-        return match(word_list,'noun')
-    elif next_word == 'verb':
-        return ('noun', 'player')
-    else:
-        raise ParseError("expected a verb next.")
 
 def parse_sentence(sentence):
     word_list = scan(sentence) 
-    print("subject>>>>>")
-    subj = parse_subject(word_list)
-    print("verb>>>>>>")
-    print(word_list)
     verb = parse_verb(word_list)
-    print("object>>>>>")
     obj = parse_object(word_list)
 
-    return Sentence(subj, verb, obj)
+    return Sentence(verb, obj)
 
-test = parse_sentence("jon shoot up")
-print(test.subject)
-print(test.verb)
+

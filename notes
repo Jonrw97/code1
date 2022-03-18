@@ -1,65 +1,79 @@
-test conflict 2
-test
-sudo
-  runas admin
+Linux/ubuntu
 
-apt-get
-  used for various tools to do things
+  sudo
+    runas admin
 
-sudo apt-get update
-  check for latest update packages
-sudo apt-get upgrade
-  install all upgrade packages
-history
-  see history for inputs on terminal
+  apt-get
+    used for various tools to do things
 
-use python3
-$ environment variable stores home folder
+  sudo apt-get update
+    check for latest update packages
+  sudo apt-get upgrade
+    install all upgrade packages
+  history
+    see history for inputs on terminal
 
-explorer.exe .
-  opens explorer (the . tells it to run where i am in directory)
+  use python3
+  $ environment variable stores home folder
 
-python3 --version
-  checks for version of python(or other installs just replace python)
-sudo apt-get install python3
-  install for python3
+  explorer.exe .
+    opens explorer (the . tells it to run where I am in directory)
 
-sudo apt-get install python3-pip
-  install pip
+  python3 --version
+    checks for version of python(or other installs just replace python)
+  sudo apt-get install python3
+    install for python3
 
-python3 -m pip install --user --upgrade pip
-  install latest packages
+  sudo apt-get install python3-pip
+    install pip
 
- sudo apt-get install python3.8-venv
-  install virtual environment
+  python3 -m pip install --user --upgrade pip
+    install latest packages
 
-python3 -m venv .venv
-  create new virtual environment
+  sudo apt-get install python3.8-venv
+    install virtual environment
 
-. .venv/bin/activate
-  activate virtual environment
+  python3 -m venv .venv
+    create new virtual environment
 
-sudo curl -o /usr/local/bin/atom #URL
-  tells the terminal to store data taken from a url in the given path
+  . .venv/bin/activate
+    activate virtual environment
 
-sudo chmod +x /usr/local/bin/atom
-  changes which groups(owner,users, public) can read,execute or write files/folders
+  sudo curl -o /usr/local/bin/atom #URL
+    tells the terminal to store data taken from a url in the given path
 
-atom .
+  sudo chmod +x /usr/local/bin/atom
+    changes which groups(owner, users, public) can read, execute or write files/folders
 
-  run atom using my current directory
+  atom .
+    run atom using my current directory
 
-sudo chown -R jon:jon code
-  changes ownership of files and folders.
-  -R means using recursive(will run through the files and open folders to run through the files in the folders aswell)
+  sudo chown -R jon:jon code
+    changes ownership of files and folders.
+    -R means using recursive(will run through the files and open folders to run through the files in the folders aswell)
 
-source .venv/bin/activate
-  starting venv, sourse tells it to use all the packages from the source Code
+  source .venv/bin/activate
+    starting venv, source tells it to use all the packages from the source Code
 
-ctrl+r
-  reverse search for inputs in history
+  ctrl+r
+    reverse search for inputs in history
 
-tab to autofill possible inputs
+    tab to autofill possible inputs
+
+  pip list
+    lists all pip installs
+
+  |  (pipe symbol)
+    take something to pipe through a command
+
+  grep
+    used with pipe to look for something in a file or lists
+
+  state full
+  state less
+
+  nosetests -n
+    prints when no errors
 
 GITHUB
 
@@ -67,11 +81,12 @@ GITHUB
    create repository on computer
 
    get add .
+   get add 'filename'  DONT USE <>
     adds current directory to repository
 
    git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
-    code to confiure github to my account
+    code to configure github to my account
 
     git commit -m "My First Commit"
      commit to github and give it a Name
@@ -102,6 +117,8 @@ GITHUB
         create script to run this when ubuntu is open
 
 
+Flask
+
       FLASK_ENV=development
         change flask environment so it treats variables differently
 
@@ -111,17 +128,7 @@ GITHUB
     production mode
       must be closed and rerun to see changes
 
-  pip list
-      lists all pip installs
 
-    |  (pipe symbol)
-      take something to pipe through a command
-
-    grep
-      used with pipe to look for sommething in a file or lists
-
-    state full
-    state less
 
 
 WARNING: The scripts pip, pip3 and pip3.8 are installed in '/home/jon/.local/bin' which is not on PATH.

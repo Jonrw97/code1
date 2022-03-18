@@ -39,9 +39,10 @@ def game():
             raise Exception("No room found")
     else:
         action = request.form.get('action')
+        parsed_action = parse_sentence(action)
 
-        if room and action:
-            next_room = room.go(action)
+        if room and parsed_action:
+            next_room = room.go(parsed_action)
 
         if next_room:
             player.save_current_room(next_room)
