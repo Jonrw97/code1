@@ -1,4 +1,4 @@
-from lexicon import *
+from gothonweb.lexicon import *
 
 class ParseError(Exception):
     pass
@@ -58,6 +58,18 @@ def parse_sentence(sentence):
     verb = parse_verb(word_list)
     obj = parse_object(word_list)
 
-    return Sentence(verb, obj)
+    parsed = get_parse_sentence(Sentence(verb, obj))
+    converted_parse = convertTuple(parsed)
+    return converted_parse
 
+def get_parse_sentence(parsed):
+    x = parsed
+    y = (x.verb, x.obj)
+    return y 
 
+def convertTuple(tup):
+    str = ''.join(tup)
+    return str
+
+test = parse_sentence("tell a joke")
+print(test)

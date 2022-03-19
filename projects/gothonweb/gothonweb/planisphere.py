@@ -47,8 +47,8 @@ escape_pod.add_paths({
 })
 
 the_bridge.add_paths({
-    'throw the bomb': generic_death,
-    'slowly place the bomb': escape_pod
+    'throwbomb': generic_death,
+    'placebomb': escape_pod
 })
 
 laser_weapon_armory.add_paths({
@@ -57,14 +57,14 @@ laser_weapon_armory.add_paths({
 })
 
 central_corridor.add_paths({
-    'shoot ': generic_death,
-    'dodge!': generic_death,
-    'tell a joke': laser_weapon_armory
+    'shootgun': generic_death,
+    'dodgeguard': generic_death,
+    'telljoke': laser_weapon_armory
 })
 
-start = central_corridor
-start.add_paths({'START':'central_corridor'})
+START = central_corridor
+START.add_paths({'START':central_corridor})
 
 def get_start_room():
-    return Room.go(start, 'START')
+    return START.go('START')
 

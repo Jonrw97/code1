@@ -2,6 +2,7 @@ from flask import Flask, session, redirect, url_for, escape, request
 from flask import render_template
 from gothonweb import planisphere
 from gothonweb import game_state
+from gothonweb import parse
 app = Flask(__name__)
 
 @app.route("/")
@@ -39,7 +40,9 @@ def game():
             raise Exception("No room found")
     else:
         action = request.form.get('action')
-        parsed_action = parse_sentence(action)
+        print(action,">>>>>>action")
+        parsed_action = parse.parse_sentence(action)
+        print(parsed_action,">>>>>>parsed_action")
 
         if room and parsed_action:
             next_room = room.go(parsed_action)

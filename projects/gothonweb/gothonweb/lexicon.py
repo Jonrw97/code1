@@ -2,12 +2,17 @@ lexicon = {
     'shoot':'verb',
     'dodge':'verb',
     'tell': 'verb',
+    'place':'verb',
     'joke':'noun',
     'jon':'noun',
+    'guard':'noun',
+    'gun':'noun',
     'up':'direction',
     'a':'stop',
     'the':'stop',
-    'to':'stop'
+    'to':'stop',
+    'of':'stop',
+    'in':'stop'
 }
 
 
